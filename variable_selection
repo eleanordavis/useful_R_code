@@ -1,0 +1,15 @@
+View(GASTURBINE)
+null = lm(HEATRATE ~ 1, data = GASTURBINE)
+full = lm(HEATRATE ~ ., data = GASTURBINE)
+#do stepwise regression
+  #start empty and go forwards
+best_forward = step(null, scope = list(upper=full), direction = 'forward')
+best_both1 = step(null, scope = list(upper=full), direction = 'both')
+# These find that LHV + ENGINE + POWER + CPRATIO + RPM + INLETTEMP are the best 
+  #set of predictors
+
+best_backward = step(full, scope = list(lower = null), direction = 'backward')
+best_both = step(full, scope = list(lower = null, upper = full), direction = 'both')
+f#These find that ENGINE + SHAFTS + RPM + CPRATIO + INLETTEMP + AIRFLOW + LHV are
+#the best set of predictors
+
