@@ -1,0 +1,44 @@
+#SIMPLE LINEAR REGRESSIONS
+
+#these are just for me to have data (check in envvironment)
+#will usually just have a data frame
+x = c(1,2,4,5)
+y = c(2,5,8,7)
+
+#will plot the graph of the two variables (simple)
+plot(x,y)
+
+#will plot the graph of the two variables (but pretty :))
+plot(x,y,xlim = c(0,5), ylim = c(0,8), xlab = 'Predictor', ylab = 'Result', main = 'Title')
+
+#sets the var mylm to be the linear model of y in terms of x
+mylm = lm(y~x)
+
+#gets both slope and intercept for the linear model
+coef(mylm)
+
+#adds the linear regression line to the plot in the lower right corner
+abline(mylm)
+
+#adds the linear regression line to the plot in the lower right corner (but with color :))
+abline(mylm, col = 'blue')
+
+#need to create new data frame in order to predict
+new_data_frame = data.frame(x=c(3,4))
+
+#will predict the values from the data frame based on the linear model
+predict(mylm, new_data_frame)
+
+#------------------------------EXAMPLE 3.14---------------------------------------------------------------------------
+plot(SMELTPOT$POROSITY~SMELTPOT$DIAMETER) #ugly
+plot(POROSITY~DIAMETER, data = SMELTPOT) #pretty :)
+
+porosity_lm = lm(POROSITY~DIAMETER, data = SMELTPOT)
+
+coef(porosity_lm)
+
+abline(porosity_lm, col = 'blue')
+
+new_df = data.frame(x = c(10))
+
+predict(porosity_lm, new_df)
