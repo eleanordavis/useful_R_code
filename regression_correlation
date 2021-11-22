@@ -1,0 +1,24 @@
+#basic structure
+cor(x, y)
+#get the correlation of MLBPARKS data where x = SLUGPCT and y = ELEVATN
+cor(MLBPARKS$SLUGPCT, MLBPARKS$ELEVATN)
+
+#cor() will only give correlation value (r), but if i want to know more use cor.test()
+cor.test(x, y)
+
+#cor.test() with MLBPARKS 
+cor.test(MLBPARKS$SLUGPCT, MLBPARKS$ELEVATN)
+
+#gives degrees of freedom
+df = 27
+
+#gives p-value 
+p-value = 0.007584
+
+#gives 95 percent confidenc interval
+0.1448102 0.7233311
+
+#gives the sample estimate (r) of true correlation (rho)
+sample estimates:
+  cor 
+0.4855461 
